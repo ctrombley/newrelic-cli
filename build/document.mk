@@ -26,7 +26,6 @@ changelog: tools
 
 release-notes: tools
 	@echo "=== $(PROJECT_NAME) === [ release-notes    ]: Generating release notes..."
-	@mkdir -p $(SRCDIR)/tmp
-	@$(CHANGELOG_CMD) --silent -o $(SRCDIR)/tmp/$(RELEASE_NOTES_FILE) v$(PROJECT_VER_TAGGED)
+	@$(CHANGELOG_CMD) --silent -o $(SRCDIR)/$(RELEASE_NOTES_FILE) v$(PROJECT_VER_TAGGED)
 
 .PHONY: docs changelog release-notes
