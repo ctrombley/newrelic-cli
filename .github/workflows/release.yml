@@ -28,7 +28,7 @@ jobs:
 
   release-windows-installer:
     runs-on: windows-latest
-    needs: release
+    #needs: release
     steps:
     - name: Install Go
       uses: actions/setup-go@v1
