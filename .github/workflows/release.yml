@@ -54,9 +54,9 @@ jobs:
     - name: Compile installer
       run: make compile-windows-installer
 
-    - name: Get latest release
-      id: get-latest-release
-      run: echo "##[set-output name=release_url;]$(scripts/get_latest_release.sh)"
+    - name: Get latest release upload URL
+      id: get-latest-release-upload-url
+      run: echo "##[set-output name=upload_url;]$(scripts/get_latest_release_upload_url.sh)"
 
     - name: Upload Windows installer
       id: upload-windows-installer
@@ -64,7 +64,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: https://uploads.github.com/repos/ctrombley/newrelic-cli/releases/25549716/assets{?name,label}
+        upload_url: ${{ steps.get-latest-release-upload-url.outputs.upload_url }}
         asset_path: .\installers\Windows\NewRelicCLIInstaller\bin\x64\Release\NewRelicCLIInstaller.msi
         asset_name: NewRelicCLIInstaller.msi
         asset_content_type: application/octet-stream
