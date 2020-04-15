@@ -24,7 +24,7 @@ jobs:
 
     - name: Publish Release
       shell: bash
-      run: make release-publish
+      run: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} make release-publish
 
     - uses: actions/upload-artifact@v1
       with:
