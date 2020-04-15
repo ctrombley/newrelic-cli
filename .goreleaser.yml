@@ -47,19 +47,19 @@ archives:
       - LICENSE
       - README.md
 
-dockers:
-  - dockerfile: build/package/Dockerfile
-    image_templates:
-      - "newrelic/cli:{{ .Tag }}"
-      - "newrelic/cli:v{{ .Major }}.{{ .Minor }}"
-      - "newrelic/cli:latest"
-    binaries:
-      - newrelic
-    build_flag_templates:
-      - "--pull"
-      - "--label=repository=http://github.com/newrelic/newrelic-cli"
-      - "--label=homepage=https://developer.newrelic.com/"
-      - "--label=maintainer=Developer Toolkit <opensource@newrelic.com>"
+# dockers:
+#   - dockerfile: build/package/Dockerfile
+#     image_templates:
+#       - "newrelic/cli:{{ .Tag }}"
+#       - "newrelic/cli:v{{ .Major }}.{{ .Minor }}"
+#       - "newrelic/cli:latest"
+#     binaries:
+#       - newrelic
+#     build_flag_templates:
+#       - "--pull"
+#       - "--label=repository=http://github.com/newrelic/newrelic-cli"
+#       - "--label=homepage=https://developer.newrelic.com/"
+#       - "--label=maintainer=Developer Toolkit <opensource@newrelic.com>"
 
 # Already using git-chglog
 changelog:

@@ -26,33 +26,22 @@ jobs:
       shell: bash
       run: make release-publish
 
+    - uses: actions/upload-artifact@v1
+      with:
+        name: windows-binary
+        path: dist/newrelic_windows_amd64/newrelic.exe
+
   release-windows-installer:
     runs-on: windows-latest
-    #needs: release
+    needs: release
     steps:
-    - name: Install Go
-      uses: actions/setup-go@v1
-      with:
-        go-version: ${{ matrix.go-version }}
-
-    - name: Add GOBIN to PATH
-      run: echo "::add-path::$(go env GOPATH)/bin"
-      shell: bash
-
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Install goreleaser
-      run: go get github.com/goreleaser/goreleaser
-
-    - name: Build executable
-      run: make snapshot || true
-
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.0
 
-    - name: Compile installer
-      run: make compile-windows-installer
+    - uses: actions/download-artifact@v1
+      with:
+        name: windows-binary
+        path: dist/newrelic_windows_amd64/newrelic.exe
 
     - name: Get latest release upload URL
       id: get-latest-release-upload-url
