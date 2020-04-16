@@ -48,6 +48,9 @@ jobs:
         name: windows-binary
         path: .\dist\newrelic_windows_amd64\newrelic.exe
 
+    - name: Show files
+      run: Tree . /F
+
     - name: Compile installer
       run: msbuild .\installers\Windows\NewRelicCLIInstaller.sln
 
