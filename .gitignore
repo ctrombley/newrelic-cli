@@ -9,3 +9,4 @@ output/*
 Release/*
 **/obj/*
 **/.vs/*
+relnotes.md
