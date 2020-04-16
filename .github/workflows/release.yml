@@ -46,7 +46,7 @@ jobs:
         path: dist/newrelic_windows_amd64/newrelic.exe
 
     - name: Compile installer
-      run: make compile-windows-installer
+      run: msbuild .\installers\Windows\NewRelicCLIInstaller.sln
 
     - name: Get latest release upload URL
       id: get-latest-release-upload-url
