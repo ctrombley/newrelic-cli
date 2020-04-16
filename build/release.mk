@@ -16,13 +16,13 @@ release: build
 
 release-clean:
 	@echo "=== $(PROJECT_NAME) === [ release-clean    ]: distribution files..."
-	@rm -rfv $(DIST_DIR) $(SRCDIR)/tmp
+	@rm -rfv $(DIST_DIR) $(SRCDIR)/dist
 
 release-publish: clean tools release-notes
 	@echo "=== $(PROJECT_NAME) === [ release-publish  ]: Publishing release via $(REL_CMD)"
 	@pwd
 	@ls $(SRCDIR)/tmp
-	$(REL_CMD) --release-notes=$(SRCDIR)/tmp/$(RELEASE_NOTES_FILE)
+	$(REL_CMD) --release-notes=$(SRCDIR)/dist/$(RELEASE_NOTES_FILE)
 
 # Local Snapshot
 snapshot: release-clean
