@@ -45,6 +45,9 @@ jobs:
         name: windows-binary
         path: dist/newrelic_windows_amd64/newrelic.exe
 
+    - name: Compile installer
+      run: make compile-windows-installer
+
     - name: Get latest release upload URL
       id: get-latest-release-upload-url
       shell: bash
