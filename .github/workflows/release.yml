@@ -46,7 +46,7 @@ jobs:
     - uses: actions/download-artifact@v1
       with:
         name: windows-binary
-        path: .\dist\newrelic_windows_amd64\newrelic.exe
+        path: .\dist\newrelic_windows_amd64
 
     - name: Show files
       run: Tree . /F
