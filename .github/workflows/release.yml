@@ -53,7 +53,7 @@ jobs:
 
     - name: Sign installer
       env:
-        GITHUB_TOKEN: ${{ secrets.PFX_PASSWORD }}
+        PFX_PASSWORD: ${{ secrets.PFX_PASSWORD }}
       working-directory: .\installers\Windows\NewRelicCLIInstaller
       run: .\SignMSI.cmd
 
