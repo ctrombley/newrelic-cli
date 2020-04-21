@@ -22,6 +22,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Install PGP private key
+      shell: bash
+      env:
+        PGP_PRIVATE_KEY: ${{ secrets.PGP_PRIVATE_KEY }}
+      run: echo "$PGP_PRIVATE_KEY" | gpg --batch --import
+
     - name: Publish Release
       shell: bash
       env:
